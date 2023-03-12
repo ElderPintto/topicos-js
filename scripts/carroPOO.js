@@ -4,6 +4,7 @@ export class Carro {
     this.ligado = false;
     this.element = { ...element };
     this.btn = { ...button };
+    this.id = Date.now();
   }
 
   alterarModeloCarro(modelo) {
