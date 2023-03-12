@@ -55,4 +55,6 @@ desligar.addEventListener("touchstart", () => carro.desligar());
 frear.addEventListener("click", () => carro.frear());
 frear.addEventListener("touchstart", () => carro.frear());
 
-selectCar.addEventListener("click", (event) => carro.alterarModeloCarro(event));
+selectCar.addEventListener("change", (event) =>
+  carro.alterarModeloCarro(event)
+);
