@@ -12,7 +12,7 @@ select {
 #bg {
   width: 300px;
   height: 103px;
-  background-image: url(/bg.png);
+  background-image: url("/images/bg.png");
 }
 
 .fast {
