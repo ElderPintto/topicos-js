@@ -1,5 +1,3 @@
-import { modelosDeCarros } from "./enums";
-
 export class Carro {
   constructor({ element, button }) {
     this.velocidadeAtual = 0;
@@ -8,13 +6,8 @@ export class Carro {
     this.btn = { ...button };
   }
 
-  alterarModeloCarro(event) {
-    console.log(this.element.car.getAttribute("src"));
-    this.element.car.setAttribute(
-      "src",
-      `/images/${modelosDeCarros[event.target.value]}.svg`
-    );
-    console.log(this.element.car.getAttribute("src"));
+  alterarModeloCarro(modelo) {
+    this.element.car.setAttribute("src", `/images/${modelo}.svg`);
   }
 
   ligar() {

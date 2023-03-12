@@ -1,17 +1,22 @@
 import { Carro } from "./scripts/poo.js";
+import { modelosDeCarros } from "./scripts/enums.js";
 
 const pooContainer = document.querySelector("#poo");
 
 pooContainer.innerHTML = `
   <h4 id="bg">
-    <img src="/images/school-bus.svg" id="car" class="car" alt="car" width="100px" />
+    <img src="/images/Onibus.svg" id="car" class="car" alt="car" width="100px" />
   </h4>
 
   <div class="card">
     <div>
       <select id="selectCar">
-        <option value="1">Ônibus</option>
-        <option value="2">Fusca</option>
+          ${Object.keys(modelosDeCarros)
+            .map(
+              (carro) =>
+                `<option value="${carro}">${modelosDeCarros[carro]}</option>`
+            )
+            .join("")}
       </select>
     </div>
     <button id="ligar" type="button">ligar</button>
@@ -55,6 +60,6 @@ desligar.addEventListener("touchstart", () => carro.desligar());
 frear.addEventListener("click", () => carro.frear());
 frear.addEventListener("touchstart", () => carro.frear());
 
-selectCar.addEventListener("change", (event) =>
-  carro.alterarModeloCarro(event)
-);
+selectCar.addEventListener("change", (event) => {
+  carro.alterarModeloCarro(modelosDeCarros[event.target.value]);
+});

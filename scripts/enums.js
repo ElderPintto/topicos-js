@@ -1,4 +1,4 @@
 export const modelosDeCarros = {
-  1: "school-bus",
-  2: "fusca",
+  0: "Onibus",
+  1: "Fusca",
 };
