@@ -1,10 +1,14 @@
-import { Carro } from "./scripts/carroPOO.js";
+import { Carro, UseObservador } from "./scripts/carroPOO.js";
 import { Garagem } from "./scripts/garagemPOO.js";
 import { modelosDeCarros } from "./scripts/enums.js";
 
 const pooContainer = document.querySelector("#poo");
 
 pooContainer.innerHTML = `
+  <ul id="visor">
+  <li>Ligado: Não </li>
+  <li>Velocidade: 0 </li>
+  </ul>
   <h4 id="bg">
     <img src="/images/Onibus.svg" id="car" class="car" alt="car" width="100px" />
   </h4>
@@ -33,6 +37,7 @@ pooContainer.innerHTML = `
 <div id="AreaGaragem">
 </div>`;
 
+const visor = document.querySelector("#visor");
 const car = document.querySelector("#car");
 const AreaGaragem = document.querySelector("#AreaGaragem");
 const bg = document.querySelector("#bg");
@@ -49,6 +54,7 @@ const carro = new Carro({
   element: {
     car,
     bg,
+    visor,
   },
   button: {
     ligar,
@@ -57,6 +63,10 @@ const carro = new Carro({
     frear,
   },
 });
+
+const observador = new UseObservador();
+debugger;
+carro.inscreverObservador(observador);
 
 ligar.addEventListener("click", () => carro.ligar());
 ligar.addEventListener("touchstart", () => carro.ligar());
